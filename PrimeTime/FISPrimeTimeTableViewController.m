@@ -22,6 +22,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.primesList = [[NSMutableArray alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +46,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"primeCell" forIndexPath:indexPath];
-    NSUInteger nthPrime = [self.primesList[indexPath.row + 1] integerValue];
+    NSUInteger nthPrime = [self primeNumber:indexPath.row];
 
     cell.textLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)nthPrime];
     
@@ -57,18 +59,32 @@
 
 -(NSUInteger)primeNumber:(NSUInteger)nthPrime {
     //    NSMutableArray *primesList = [[NSMutableArray alloc] init];
-    self.primesList = [[NSMutableArray alloc] init];
-    for (NSUInteger i = 1; i <= nthPrime; i++) {
-        if ([self isPrime:i]) {
-            [self.primesList addObject:@(i)];
+    
+    
+    NSUInteger possiblePrime = 1;
+    do {
+        if ([self isPrime:possiblePrime]) {
+            [self.primesList addObject:@(possiblePrime)];
         }
-    }
-    return [self.primesList[nthPrime - 1] integerValue];
+        possiblePrime++;
+    } while ([self.primesList count] <= nthPrime);
+
+    return [[self.primesList lastObject] integerValue];
 }
 
 -(BOOL)isPrime:(NSUInteger)numberToTest {
-    for (NSUInteger i = 2; i <= sqrtl(numberToTest); i++) {
-        if (numberToTest % i == 0) {
+    switch (numberToTest) {
+        case 1:
+            return NO;
+        case 2:
+        case 3:
+            return YES;
+        default:
+            break;
+    }
+    
+    for (NSUInteger possibleFactor = 4; possibleFactor <= sqrtl(numberToTest); possibleFactor++) {
+        if (numberToTest % possibleFactor == 0) {
             return NO;
         }
     }
