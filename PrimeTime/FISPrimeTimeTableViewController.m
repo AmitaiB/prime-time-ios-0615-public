@@ -64,7 +64,7 @@
 
 -(NSMutableArray*)generatePrimesListToNthPrime:(NSUInteger)nth {
     NSMutableArray *localPrimesList = [@[]mutableCopy];
-    NSUInteger possiblePrime = 1;
+    NSUInteger possiblePrime = 2;
      while ([localPrimesList count] <= nth) {
         if ([self isPrime:possiblePrime]) {
             [localPrimesList addObject:@(possiblePrime)];
@@ -76,22 +76,14 @@
 }
 
 -(BOOL)isPrime:(NSUInteger)numberToTest {
-    switch (numberToTest) {
-        case 0:
-        case 1:
-            return NO;
-        case 2:
-        case 3:
-            return YES;
-        default:
-            break;
-    }
-    
-    for (NSUInteger possibleFactor = 4; possibleFactor <= sqrtl(numberToTest); possibleFactor++) {
-        if (numberToTest % possibleFactor == 0) {
+    NSUInteger idx = 2;
+    while (idx <= sqrtl(numberToTest)) {
+        if (numberToTest % idx == 0) {
             return NO;
         }
+        idx++;
     }
+
     return YES;
 }
 
