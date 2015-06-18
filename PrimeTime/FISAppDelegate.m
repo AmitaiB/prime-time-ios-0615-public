@@ -12,10 +12,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    
+    
+    
+    return YES;
+}
+
+-(NSUInteger)primeNumber:(NSUInteger)nthPrime {
+    NSMutableArray *primesList = [[NSMutableArray alloc] init];
+    for (NSUInteger i = 1; i <= nthPrime; i++) {
+        if ([self isPrime:i]) {
+            [primesList addObject:@(i)];
+        }
+    }
+    return [primesList[nthPrime - 1] integerValue];
+}
+
+-(BOOL)isPrime:(NSUInteger)numberToTest {
+    for (NSUInteger i = 2; i <= ceill(sqrtl(numberToTest)); i++) {
+        if (numberToTest % i == 0) {
+            return NO;
+        }
+    }
     return YES;
 }
 

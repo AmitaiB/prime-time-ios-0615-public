@@ -12,4 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+-(BOOL)isPrime:(NSUInteger)numberToTest;
+-(NSUInteger)primeNumber:(NSUInteger)nthPrime;
+
+
 @end
