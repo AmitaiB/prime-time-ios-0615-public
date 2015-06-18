@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface FISPrimeTimeTableViewController : UITableViewController
-//@property (nonatomic, strong) NSMutableArray *primesList;
+@property (nonatomic, strong) NSMutableArray *primesList;
 
 -(NSUInteger)primeNumber:(NSUInteger)nthPrime;
--(NSMutableArray*)generatePrimesListToNthPrime:(NSUInteger)nth;
+-(NSMutableArray*)generatePrimesArrayToNthPrime:(NSUInteger)nth;
 -(BOOL)isPrime:(NSUInteger)numberToTest;
 
 @end

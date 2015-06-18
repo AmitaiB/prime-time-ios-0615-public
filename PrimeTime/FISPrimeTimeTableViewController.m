@@ -17,18 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.accessibilityLabel = @"table";
+    self.tableView.accessibilityIdentifier = @"table";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-<<<<<<< HEAD
-
-    //    self.primesList = [[NSMutableArray alloc] init];
-=======
     
-    self.primesList = [self generatePrimesListToNthPrime:100];
->>>>>>> refactor1
+//    self.primesList = [self generatePrimesListToNthPrime:100];
 
 }
 
@@ -66,11 +62,13 @@
 #pragma mark Helper Functions
 
 -(NSUInteger)primeNumber:(NSUInteger)nthPrime {
-    return [self.primesList[nthPrime] integerValue];
+    self.primesList = [self generatePrimesArrayToNthPrime:nthPrime];
+    return [[self.primesList lastObject] integerValue];
 }
 
--(void)generatePrimesListToNthPrime:(NSUInteger)nth {
-    NSMutableArray *localPrimesList = [@[]mutableCopy];
+-(NSMutableArray*)generatePrimesArrayToNthPrime:(NSUInteger)nth {
+    
+    NSMutableArray *localPrimesList = [NSMutableArray arrayWithArray:@[@2]];
     NSUInteger possiblePrime = 2;
      while ([localPrimesList count] <= nth) {
         if ([self isPrime:possiblePrime]) {
@@ -78,8 +76,8 @@
         }
         possiblePrime++;
     }
-
     return localPrimesList;
+
 }
 
 
