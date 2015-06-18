@@ -22,7 +22,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.primesList = [[NSMutableArray alloc] init];
+
+    //    self.primesList = [[NSMutableArray alloc] init];
 
 }
 
@@ -46,6 +47,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"primeCell" forIndexPath:indexPath];
+
+    
     NSUInteger nthPrime = [self primeNumber:indexPath.row];
 
     cell.textLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)nthPrime];
@@ -58,18 +61,17 @@
 #pragma mark Helper Functions
 
 -(NSUInteger)primeNumber:(NSUInteger)nthPrime {
-    //    NSMutableArray *primesList = [[NSMutableArray alloc] init];
-    
-    
+    NSMutableArray *primesList = [[NSMutableArray alloc] init];
     NSUInteger possiblePrime = 1;
+    
     do {
         if ([self isPrime:possiblePrime]) {
-            [self.primesList addObject:@(possiblePrime)];
+            [primesList addObject:@(possiblePrime)];
         }
         possiblePrime++;
-    } while ([self.primesList count] <= nthPrime);
+    } while ([primesList count] < nthPrime);
 
-    return [[self.primesList lastObject] integerValue];
+    return [[primesList lastObject] integerValue];
 }
 
 -(BOOL)isPrime:(NSUInteger)numberToTest {
