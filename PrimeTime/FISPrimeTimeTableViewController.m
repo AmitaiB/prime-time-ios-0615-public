@@ -49,7 +49,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"primeCell" forIndexPath:indexPath];
 
     
-    NSUInteger nthPrime = [self primeNumber:indexPath.row];
+    NSUInteger nthPrime = [self primeNumber:indexPath.row +1];
 
     cell.textLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)nthPrime];
     
@@ -60,18 +60,19 @@
 
 #pragma mark Helper Functions
 
--(NSUInteger)primeNumber:(NSUInteger)nthPrime {
-    NSMutableArray *primesList = [[NSMutableArray alloc] init];
+//given a number, will return the nth prime. E.g., [1]2, 2[2], 3[3], 4[5], 5[7],...nth[primeNumber]
+-(NSUInteger)primeNumber:(NSUInteger)nth {
+    NSUInteger nthPrime = 0;
     NSUInteger possiblePrime = 1;
+    NSUInteger counter = 1;
     
-    do {
+    while (counter <= nth) {
         if ([self isPrime:possiblePrime]) {
-            [primesList addObject:@(possiblePrime)];
+            nthPrime = possiblePrime;
+            counter++;
         }
-        possiblePrime++;
-    } while ([primesList count] < nthPrime);
-
-    return [[primesList lastObject] integerValue];
+    }
+    return nthPrime;
 }
 
 -(BOOL)isPrime:(NSUInteger)numberToTest {
@@ -85,12 +86,16 @@
             break;
     }
     
+    BOOL hasFactor = NO;
+    
     for (NSUInteger possibleFactor = 4; possibleFactor <= sqrtl(numberToTest); possibleFactor++) {
         if (numberToTest % possibleFactor == 0) {
-            return NO;
+            hasFactor = YES;;
         }
     }
-    return YES;
+    
+    
+    return (hasFactor)? YES: NO;
 }
 
 

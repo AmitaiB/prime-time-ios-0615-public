@@ -12,6 +12,6 @@
 //@property (nonatomic, strong) NSMutableArray *primesList;
 
 -(BOOL)isPrime:(NSUInteger)numberToTest;
--(NSUInteger)primeNumber:(NSUInteger)nthPrime;
+-(NSUInteger)primeNumber:(NSUInteger)nth;
 
 @end
