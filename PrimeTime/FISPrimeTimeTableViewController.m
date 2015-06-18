@@ -22,8 +22,13 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+<<<<<<< HEAD
 
     //    self.primesList = [[NSMutableArray alloc] init];
+=======
+    
+    self.primesList = [self generatePrimesListToNthPrime:100];
+>>>>>>> refactor1
 
 }
 
@@ -60,42 +65,33 @@
 
 #pragma mark Helper Functions
 
-//given a number, will return the nth prime. E.g., [1]2, 2[2], 3[3], 4[5], 5[7],...nth[primeNumber]
--(NSUInteger)primeNumber:(NSUInteger)nth {
-    NSUInteger nthPrime = 0;
-    NSUInteger possiblePrime = 1;
-    NSUInteger counter = 1;
-    
-    while (counter <= nth) {
-        if ([self isPrime:possiblePrime]) {
-            nthPrime = possiblePrime;
-            counter++;
-        }
-    }
-    return nthPrime;
+-(NSUInteger)primeNumber:(NSUInteger)nthPrime {
+    return [self.primesList[nthPrime] integerValue];
 }
 
--(BOOL)isPrime:(NSUInteger)numberToTest {
-    switch (numberToTest) {
-        case 1:
-            return NO;
-        case 2:
-        case 3:
-            return YES;
-        default:
-            break;
-    }
-    
-    BOOL hasFactor = NO;
-    
-    for (NSUInteger possibleFactor = 4; possibleFactor <= sqrtl(numberToTest); possibleFactor++) {
-        if (numberToTest % possibleFactor == 0) {
-            hasFactor = YES;;
+-(void)generatePrimesListToNthPrime:(NSUInteger)nth {
+    NSMutableArray *localPrimesList = [@[]mutableCopy];
+    NSUInteger possiblePrime = 2;
+     while ([localPrimesList count] <= nth) {
+        if ([self isPrime:possiblePrime]) {
+            [localPrimesList addObject:@(possiblePrime)];
         }
+        possiblePrime++;
     }
-    
-    
-    return (hasFactor)? YES: NO;
+
+    return localPrimesList;
+}
+
+
+-(BOOL)isPrime:(NSUInteger)numberToTest {
+    NSUInteger idx = 2;
+    while (idx <= sqrtl(numberToTest)) {
+        if (numberToTest % idx == 0) {
+            return NO;
+        }
+        idx++;
+    }
+    return YES;
 }
 
 

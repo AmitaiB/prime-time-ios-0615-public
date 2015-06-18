@@ -11,7 +11,8 @@
 @interface FISPrimeTimeTableViewController : UITableViewController
 //@property (nonatomic, strong) NSMutableArray *primesList;
 
+-(NSUInteger)primeNumber:(NSUInteger)nthPrime;
+-(NSMutableArray*)generatePrimesListToNthPrime:(NSUInteger)nth;
 -(BOOL)isPrime:(NSUInteger)numberToTest;
--(NSUInteger)primeNumber:(NSUInteger)nth;
 
 @end
