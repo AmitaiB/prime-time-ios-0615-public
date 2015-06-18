@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3879261E1B332C6600F343C5 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3879261D1B332C6600F343C5 /* Storyboard.storyboard */; };
+		387926211B332D5000F343C5 /* FISPrimeTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387926201B332D5000F343C5 /* FISPrimeTimeTableViewController.m */; };
 		726811FB1923ECC5009F8F37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726811FA1923ECC5009F8F37 /* Foundation.framework */; };
 		726811FD1923ECC5009F8F37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726811FC1923ECC5009F8F37 /* CoreGraphics.framework */; };
 		726811FF1923ECC5009F8F37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726811FE1923ECC5009F8F37 /* UIKit.framework */; };
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3879261D1B332C6600F343C5 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		3879261F1B332D5000F343C5 /* FISPrimeTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISPrimeTimeTableViewController.h; sourceTree = "<group>"; };
+		387926201B332D5000F343C5 /* FISPrimeTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISPrimeTimeTableViewController.m; sourceTree = "<group>"; };
 		726811F71923ECC5009F8F37 /* PrimeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrimeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		726811FA1923ECC5009F8F37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		726811FC1923ECC5009F8F37 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,6 +126,9 @@
 				726812091923ECC5009F8F37 /* FISAppDelegate.h */,
 				7268120A1923ECC5009F8F37 /* FISAppDelegate.m */,
 				7268120C1923ECC5009F8F37 /* Images.xcassets */,
+				3879261D1B332C6600F343C5 /* Storyboard.storyboard */,
+				3879261F1B332D5000F343C5 /* FISPrimeTimeTableViewController.h */,
+				387926201B332D5000F343C5 /* FISPrimeTimeTableViewController.m */,
 				726812011923ECC5009F8F37 /* Supporting Files */,
 			);
 			path = PrimeTime;
@@ -246,6 +254,7 @@
 			files = (
 				726812051923ECC5009F8F37 /* InfoPlist.strings in Resources */,
 				7268120D1923ECC5009F8F37 /* Images.xcassets in Resources */,
+				3879261E1B332C6600F343C5 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				387926211B332D5000F343C5 /* FISPrimeTimeTableViewController.m in Sources */,
 				726812071923ECC5009F8F37 /* main.m in Sources */,
 				7268120B1923ECC5009F8F37 /* FISAppDelegate.m in Sources */,
 			);
